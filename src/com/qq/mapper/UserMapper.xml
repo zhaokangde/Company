@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.qq.mapper.UserMapper">	
+ 	<insert id="add">
+ 		<!--用户注册用户信息-->
+ 		insert into user(username,password)values(#{name},#{password})
+ 	</insert>
+ 	<insert id="add1">
+ 		<!--管理员添加用户信息-->
+ 		insert into user(username,password,power,email,acl)values(#{name},#{password},#{power},#{email},#{acl})
+ 	</insert>
+ 	  <select id="check" resultType="com.qq.model.User">
+     <!-- 查询 是否有重复的用户名 -->
+ 		select * from user where username=#{name}
+     </select>
+     
+     <select id="querryId" resultType="com.qq.model.User">
+     <!-- 查询 要修改的用户 -->
+ 		select * from user where userid=#{id}
+     </select>
+     
+        <select id="check1" resultType="com.qq.model.User">
+     <!-- 登陆验证密码用户 -->
+ 		select * from user where username=#{name} and password=#{password}
+     </select>
+       <select id="queryAll" resultType="com.qq.model.User">
+     <!-- 查询 所有用户 -->
+ 		select * from user 
+     </select>
+      <!-- 删除用户 -->
+     <delete id="del" parameterType="com.qq.model.User">
+     delete from user where userid=#{id}
+     </delete>     
+     <update id="Update">
+ 		update user SET username=#{name},password=#{pwd},power=#{power},email=#{email},acl=#{acl} WHERE userid=#{id}
+ 	</update> 
+ </mapper>

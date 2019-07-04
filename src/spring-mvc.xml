@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>    
+<beans xmlns="http://www.springframework.org/schema/beans"      
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"      
+    xmlns:mvc="http://www.springframework.org/schema/mvc"    
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd       
+    http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">     
+
+
+	
+	
+	<!-- 配置静态文件供服务器访问 -->
+	
+	<mvc:resources mapping="/css/**" location="/css/" />
+	<mvc:resources mapping="/img/**" location="/img/" />
+	<mvc:resources mapping="/js/**" location="/js/" />
+	<mvc:default-servlet-handler/>
+	<mvc:resources mapping="/bin/**" location="/bin/" />
+	<mvc:resources mapping="/chart/**" location="/chart/" />
+	<mvc:resources mapping="/themes/**" location="/themes/" />
+	<mvc:resources mapping="/uploadify/**" location="/uploadify/" />
+	<mvc:resources mapping="/xheditor/**" location="/xheditor/" />
+	<mvc:resources mapping="/*.xml" location="/" />
+
+	<bean
+		id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
+		<property name="prefix" value="/jsp/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+	
+	<!-- 配置文件解析器对象，要求id名称必须是multipartResolver -->
+<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+<property name="maxUploadSize" value="10485760"/>
+</bean>
+
+</beans>

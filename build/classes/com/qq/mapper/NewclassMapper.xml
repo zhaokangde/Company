@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.qq.mapper.NewclassMapper">
+  <select id="queryclass" resultType="com.qq.model.Newclass">
+     <!-- 查询 要修改的用户 -->
+ 		select * from class
+     </select>
+
+ 	
+ </mapper>

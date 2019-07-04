@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.qq.mapper.CriticalMapper">
+ 	<insert id="add" >
+ 		<!--用户注册用户信息-->
+ 		insert into cratic(craticid,res_id,username,contentid,cratic_content,cratic_type,cratic_time)
+ 		values(null,#{resId},#{username},#{contentId},#{cratiContent},#{craticType},#{craticTime})
+ 	</insert>
+ 	  <select id="findCriticalByid" resultType="com.qq.model.Critical">
+     <!-- 查询 要修改的用户 -->
+ 		select * from cratic where contentid = #{id}
+     </select>
+ 	
+ 	 <select id="findAllbytype" resultType="com.qq.model.Critical">
+     <!-- 查询 要修改的用户 -->
+ 		select * from cratic where cratic_type = #{type}
+     </select>
+ 	<delete id="delete">
+ 		delete from cratic where  craticid =#{criticalId}
+ 	
+ 	</delete>
+ 	 <select id="findreplyByType" resultType="com.qq.model.Critical">
+     <!-- 查询 要修改的用户 -->
+ 		select * from cratic where cratic_type = #{type}
+     </select>
+     <update id="updateStatus">
+    update cratic  SET cratic_type=#{uuid} WHERE =#{id}
+     </update>
+    
+ </mapper>

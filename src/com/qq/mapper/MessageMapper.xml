@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.qq.mapper.MessageMapper">
+
+ 	<select id="queryInfolist" resultType="com.qq.model.InfoList">
+ 		<!--查询内容表全部信息-->
+ 		select *from class,content,picture where content.classid=class.classid and content.picid = picture.picid
+ 	</select>
+ 		<!--添加message的信息    -->
+ 		<insert id="add"> 
+ 		insert into content(title,classid,contents,publish_time,picid)values(#{title},#{classid},#{content},#{publishtime},#{picid})
+ 	    </insert>
+ 	     	<select id="queryInfolist1" resultType="com.qq.model.InfoList" parameterType="int">
+ 		<!--查询内容表全部信息-->
+ 		select *from class,content,picture where content.contentid = #{contnetId} and  content.classid=class.classid and content.picid = picture.picid 
+ 	</select>
+ 	
+ 	<delete id="deleteByContentId" parameterType="int" >
+ 	delete from content where contentid =#{contentId}
+ 	</delete>
+ 	<update id="update">
+ 	update content set  classid=#{classlistid},title=#{title},contents=#{content},publish_time=#{format},picid=#{picid}  where contentid = #{name}
+ 	
+ 	</update>
+ </mapper>

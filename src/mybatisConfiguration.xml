@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD SQL MAP Config 3.1//EN"
+ "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+	<settings>
+        <!-- 日志设定，在控制台打印查询语句 -->
+        <setting name="logImpl" value="STDOUT_LOGGING" />
+	</settings>
+
+		<!--指定映射文件的路径-->
+<!-- 	<mappers>
+		<package name="com.qq.mapper"/>
+	</mappers>
+-->
+</configuration>
+
+
